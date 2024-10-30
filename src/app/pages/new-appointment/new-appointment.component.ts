@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { AppointmentListComponent } from '../appointment-list/appointment-list.component';
 import { Appointment } from '../../models/appointment.model';
+import { MasterService } from '../../service/master.service';
 
 @Component({
   selector: 'app-new-appointment',
@@ -9,7 +10,7 @@ import { Appointment } from '../../models/appointment.model';
 })
 export class NewAppointmentComponent {
 
-  appointmentObj: Appointment = { // Inizializza appointmentObj con un oggetto che rispetta l'interfaccia Appointment
+  appointmentObj: Appointment = {
     name: '',
     mobileNo: '',
     city: '',
@@ -20,4 +21,16 @@ export class NewAppointmentComponent {
     isFirstVisit: true,
     narration: ''
   };
+
+  constructor(private master: MasterService){}
+
+  onSaveAppointment() {
+    this.master.createNew(this.appointmentObj).subscribe((res:any)=>{
+      if(res.result){
+        alert("Appointment done");
+      }
+    },error => {
+      alert("API Error/ Check Form");
+    })
+  }
 }
