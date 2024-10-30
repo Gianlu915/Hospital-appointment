@@ -14,4 +14,12 @@ export class MasterService {
   createNew(obj:any): Observable<any> {
     return this.http.post(this.apiaEndPint + "AddNewAppointment", obj)
   }
+
+  getAllAppointment(): Observable<any> {
+    return this.http.get(this.apiaEndPint + "GetAllAppointments")
+  }
+
+  getAllTodaysAppointment(): Observable<any> {
+    return this.http.get(this.apiaEndPint + "GetTodaysAppointments")
+  }
 }

@@ -1,1 +1,36 @@
-<p>appointment-list works!</p>
+
+<div class="parent">
+    <div class="container-fluid">
+        <div class="row pb-1">
+            <div class="col-12 text-end">
+                <button class="btn btn-success" (click)="getAllAppointment()">All </button>
+                <button class="btn btn-primary" (click)="getTodaysAppointment()">Todays </button>
+            </div>
+        </div>
+        <div class="row" *ngFor="let item of appointmentList">
+            <div class="col-lg-3">
+                <div class="card card-margin">
+                    <div class="card-header no-border">
+                        <h5 class="card-title">{{item.name}}</h5>
+                    </div>
+                    <div class="card-body pt-0">
+                        <div class="widget-49">
+                            <div class="widget-49-title-wrapper">
+                                <div class="widget-49-date-primary">
+                                    <span class="widget-49-date-day">{{item.appointmentNo}}</span> 
+                                </div>
+                                <div class="widget-49-meeting-info">
+                                    <span class="widget-49-pro-title">Perugia</span>
+                                    <span class="widget-49-meeting-time">{{item.appointmentDate | date: 'dd-MM-yy'}} {{item.appointmentTime}}</span>
+                                </div>
+                            </div> 
+                            <div class="widget-49-meeting-action">
+                                <a href="#" class="btn btn-sm btn-success"> Done</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
