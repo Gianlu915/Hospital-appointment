@@ -27,7 +27,7 @@ export class NewAppointmentComponent {
   onSaveAppointment() {
     this.master.createNew(this.appointmentObj).subscribe((res:any)=>{
       if(res.result){
-        alert("Appointment done");
+        alert("Appointment done & Appointment No is- " + res.data.appointmentNo);
       }
     },error => {
       alert("API Error/ Check Form");
