@@ -37,5 +37,14 @@ export class AppointmentListComponent implements OnInit{
     })
   }
 
+  markDone(appointmentId:number) {
+    this.master.markAppointmentDone(appointmentId).subscribe((res:any)=> {
+     this.getTodaysAppointment();
+    },
+    error => {
+      alert('API error occured')
+    })
+  }
+
   
 }

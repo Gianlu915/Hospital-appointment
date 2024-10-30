@@ -22,4 +22,8 @@ export class MasterService {
   getAllTodaysAppointment(): Observable<any> {
     return this.http.get(this.apiaEndPint + "GetTodaysAppointments")
   }
+
+  markAppointmentDone(appointmentId:number): Observable<any> {
+    return this.http.get(this.apiaEndPint + "MarkAppointmentDone?appointmentId=" + appointmentId)
+  }
 }
